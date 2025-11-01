@@ -18,6 +18,9 @@ class Model(object):
 
 		self.textures = []
 
+		self.visible = True
+
+
 	def GetModelMatrix(self):
 
 		identity = glm.mat4(1)
@@ -113,6 +116,9 @@ class Model(object):
 
 
 	def Render(self):
+
+		if not self.visible:
+			return
 
 		# Dar la textura
 		for i in range(len(self.textures)):
